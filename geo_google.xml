@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+        
+        <record id="geo_google_form" model="ir.ui.view">
+            <field name="name">geo.google.form</field>
+            <field name="model">history.detail</field>
+            <field name="arch" type="xml">
+                <form string="Geo Google">
+                    <sheet>
+                        <button name="check" type="object" string="Check" class="btn-primary"/>
+                        <group>
+                            <field name="latitute"/>
+                            <field name="longitude"/>
+                            <field name="address"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="country"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_geo_google" model="ir.actions.act_window">
+            <field name="name">Geo Google</field>
+            <field name="res_model">history.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="geo_google_menu"
+            name="Geo Google"
+            parent="sales_team.menu_base_partner"
+            sequence="99"/>
+
+         <menuitem
+            id="geo_google_menu_2"
+            name="Geo Google"
+            parent="geo_google_menu"
+            sequence="1"
+            action="view_geo_google"
+            />
+
+</odoo>
